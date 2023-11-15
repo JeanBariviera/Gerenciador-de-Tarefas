@@ -8,28 +8,41 @@
 
 <body>
     <div>
-        <h2>Insira seu Usuario:</h2>
+        <h2>Insira seu Usuário:</h2>
         <input type="text" id="userInput">
 
-        <h2>Insira sua senha:</h2>
+        <h2>Insira sua Senha:</h2>
         <input type="password" id="senhaInput">
 
         <button onclick="validarLogin()">Login</button>
+
+        <p id="erroLogin"></p>
     </div>
     <script>
         function validarLogin() {
-            let usuarioFixo = "nome"
-            let senhaFixa = "123"
+            let usuariosFixos = [
+                { usuario: "nome1", senha: "123" },
+                { usuario: "nome2", senha: "456" },
+                { usuario: "nome3", senha: "789" }
+            ];
+
             let usuario = document.getElementById("userInput").value;
             let senha = document.getElementById("senhaInput").value;
 
-            if ((usuario == usuarioFixo) && (senha == senhaFixa)) {
+            let credencialValida = false;
+            for (let i = 0; i < usuariosFixos.length; i++) {
+                if (usuario === usuariosFixos[i].usuario && senha === usuariosFixos[i].senha) {
+                    credencialValida = true;
+                    break;
+                }
+            }
+
+            if (credencialValida) {
                 window.location.href = "file:///C:/DSV-Git/Gerenciador de Tarefas/Gerenciador Tarefas.html";
             } else {
-                window.alert("Logou não");
+                document.getElementById("erroLogin").innerHTML = "Usuário ou senha incorretos.";
             }
         };
-
     </script>
 </body>
 
