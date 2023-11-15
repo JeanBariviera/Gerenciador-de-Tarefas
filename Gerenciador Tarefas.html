@@ -11,18 +11,39 @@
         <h2>Descreva a Tarefa:</h2>
         <input type="text" id="tarefaInput">
         <button onclick="incluirTarefa()">Incluir Tarefa</button>
-        <button onclick="excluirTarefa()">Excluir Tarefa</button>
-        </br>
-        </br>
+        <br><br>
         <h2>Lista de Tarefa:</h2>
         <div id="listaTarefas"></div>
+        <br>
+        <h2>Excluir Tarefa:</h2>
+        <input type="text" id="excluirInput">
+        <button onclick="excluirTarefa()">Excluir Tarefa</button>
     </div>
 
     <script>
-        var tarefa = [];
+        var tbtarefa = [];
         function incluirTarefa() {
-            let tar = documentElementById("tarefaInput").value;
-            tarefa.push({ tarefa = tar });
+            let tar = document.getElementById("tarefaInput").value;
+            tbtarefa.push({ tarefa: tar });
+            atualizarListaTarefas();
+        }
+        function excluirTarefa() {
+            let tarParaExcluir = document.getElementById("excluirInput").value;
+
+            if (tarParaExcluir.trim() !== "") {
+                tbtarefa = tbtarefa.filter(tarefa => tarefa.tarefa !== tarParaExcluir);
+                atualizarListaTarefas();
+            } else {
+                alert("Por favor, digite a tarefa que deseja excluir.");
+            }
+            document.getElementById("excluirInput").value = "";
+        }
+        function atualizarListaTarefas() {
+            var listaTarefasDiv = document.getElementById("listaTarefas");
+            listaTarefasDiv.innerHTML = '';
+            for (var i = 0; i < tbtarefa.length; i++) {
+                listaTarefasDiv.innerHTML += '<p>' + tbtarefa[i].tarefa + '</p>';
+            }
         }
     </script>
 </body>
