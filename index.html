@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <!-- Contem a tela com os campos de entrada de dados e botoes -->
     <div>
         <h2>Insira seu Usuario:</h2>
         <input type="text" id="userInput">
@@ -17,14 +16,10 @@
 
         <button onclick="validarLogin()">Login</button>
     </div>
-
     <script>
-        //Função para validação do usuario e senha
-        //Dados fixos, sendo comparados por meio de uma condição e se verdadeira redirecionando para pagina inicial
         function validarLogin() {
             let usuarioFixo = "nome"
             let senhaFixa = "123"
-
             let usuario = document.getElementById("userInput").value;
             let senha = document.getElementById("senhaInput").value;
 
