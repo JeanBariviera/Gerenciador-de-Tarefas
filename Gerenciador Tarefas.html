@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div>
+        <h2>Descreva a Tarefa:</h2>
+        <input type="text" id="tarefaInput">
+        <button onclick="incluirTarefa()">Incluir Tarefa</button>
+        <button onclick="excluirTarefa()">Excluir Tarefa</button>
+        </br>
+        </br>
+        <h2>Lista de Tarefa:</h2>
+        <div id="listaTarefas"></div>
+    </div>
+
+    <script>
+        var tarefa = [];
+        function incluirTarefa() {
+            let tar = documentElementById("tarefaInput").value;
+            tarefa.push({ tarefa = tar });
+        }
+    </script>
+</body>
+
+</html>
