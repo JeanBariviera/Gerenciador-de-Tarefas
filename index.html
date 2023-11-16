@@ -10,12 +10,9 @@
     <div>
         <h2>Insira seu Usuário:</h2>
         <input type="text" id="userInput">
-
         <h2>Insira sua Senha:</h2>
         <input type="password" id="senhaInput">
-
         <button onclick="validarLogin()">Login</button>
-
         <p id="erroLogin"></p>
     </div>
     <script>
@@ -25,7 +22,6 @@
                 { usuario: "nome2", senha: "456" },
                 { usuario: "nome3", senha: "789" }
             ];
-
             let usuario = document.getElementById("userInput").value;
             let senha = document.getElementById("senhaInput").value;
 
@@ -36,7 +32,6 @@
                     break;
                 }
             }
-
             if (credencialValida) {
                 window.location.href = "file:///C:/DSV-Git/Gerenciador de Tarefas/Gerenciador Tarefas.html";
             } else {
