@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div>
+        <h2>Adicionar Item:</h2>
+        <input type="text" id="addItemInput">
+        <br><br>
+        <button onclick="incluirTarefa()">Adicionar Item</button>
+        <br><br>
+        <button onclick="removerultimo()">Remover Ultimo</button>
+        <br><br>
+        <button onclick="removeraleatorio()">Remover Aleatório</button>
+        <br><br>
+        <div id="adicionaritem"></div>
+    </div>
+    <script>
+        var item = [];
+        function incluirTarefa() {
+            let tar = document.getElementById("addItemInput").value;
+            item.push({ itens: tar });
+            AdicionarItens();
+        }
+        function AdicionarItens() {
+            var listaitensDiv = document.getElementById("adicionaritem");
+            listaitensDiv.innerHTML = '';
+            for (var i = 0; i < item.length; i++) {
+                listaitensDiv.innerHTML += '<p>' + item[i].itens + '</p>'
+                addItemInput.value = '';
+            }
+        }
+        function removerultimo() {
+            item.pop();
+            AdicionarItens()
+        }
+        function removeraleatorio() {
+            if (item.length > 0) {
+                var indiceAleatorio = Math.floor(Math.random() * item.length);
+                item.splice(indiceAleatorio, 1);
+                AdicionarItens();
+            } else { }
+        }
+
+    </script>
+</body>
+
+</html>
