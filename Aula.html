@@ -24,37 +24,41 @@
     </div>
     <script>
         var item = [];
+
         function incluirTarefa() {
             let tar = document.getElementById("addItemInput").value;
             item.push({ itens: tar });
             AdicionarItens();
             atualizartamanho();
+            addItemInput.value = ''; // Mover para fora do loop para limpar o campo de entrada
         }
+
         function AdicionarItens() {
             var listaitensDiv = document.getElementById("adicionaritem");
             listaitensDiv.innerHTML = '';
             for (var i = 0; i < item.length; i++) {
-                listaitensDiv.innerHTML += '<p>' + item[i].itens + '</p>'
-                addItemInput.value = '';
+                listaitensDiv.innerHTML += '<p>' + item[i].itens + '</p>';
             }
         }
+
         function removerultimo() {
             item.pop();
             AdicionarItens();
             atualizartamanho();
         }
+
         function removeraleatorio() {
             if (item.length > 0) {
                 var indiceAleatorio = Math.floor(Math.random() * item.length);
                 item.splice(indiceAleatorio, 1);
                 AdicionarItens();
                 atualizartamanho();
-                ]
-            } else { }
+            }
         }
+
         function atualizartamanho() {
             var arraytamanhoDiv = document.getElementById("tamanhoarray");
-            arraytamanhoDiv.innerHTML = item.length
+            arraytamanhoDiv.innerHTML = 'O tamanho da array é: ' + item.length;
         }
     </script>
 </body>
